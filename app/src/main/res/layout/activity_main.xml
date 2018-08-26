@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/dcComics"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:onClick="iralcomic"
+                android:text="DC Comics" />
+
+            <Button
+                android:id="@+id/marvel"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:text="Marvel" />
+
+            <Button
+                android:id="@+id/manga"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:text="Manga" />
+
+            <Button
+                android:id="@+id/ben10"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:text="Ben 10" />
+
+            <Button
+                android:id="@+id/mylittlepony"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:text="My Little Pony" />
+
+            <Button
+                android:id="@+id/others"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:text="Otros" />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
