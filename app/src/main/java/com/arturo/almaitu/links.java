@@ -25,12 +25,10 @@ public class links extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_links);
-
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
         int heidh = dm.heightPixels;
-
         getWindow().setLayout((int) (width * .8), (int) (heidh * .6));
         iniciar();
     }

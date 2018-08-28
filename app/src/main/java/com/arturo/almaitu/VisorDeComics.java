@@ -26,6 +26,7 @@ public class VisorDeComics extends AppCompatActivity {
     }
 
     private void initComponents() {
+        final String company = getIntent().getStringExtra("company");
         comicsCards = new ArrayList();
         listComics = (ListView) findViewById(R.id.listMain);
         listComics.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -35,12 +36,12 @@ public class VisorDeComics extends AppCompatActivity {
                 final String comicName = nameView.getText().toString();
             }
         });
-        getAllComics();
+        getAllComics(company);
     }
 
-    private void getAllComics() {
+    private void getAllComics(String company) {
         ControladorLinks controller = new ControladorLinks(this);
-        comicsCards = controller.getAllDCComics();
+        comicsCards = controller.getAllComicsByCompany(company);
         adapter = new AdaptadorMain(this, comicsCards, this);
         listComics.setAdapter(adapter);
     }

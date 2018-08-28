@@ -14,38 +14,78 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <Button
+            <ImageButton
                 android:id="@+id/dcComics"
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
                 android:onClick="iralcomic"
-                android:text="DC Comics" />
+                android:contentDescription="@string/dcComics"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@mipmap/dc2" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/marvel"
                 android:layout_width="match_parent"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@mipmap/marvel1"
+                android:contentDescription="@string/marvel"
                 android:layout_height="130dp"
-                android:text="Marvel" />
+                android:onClick="iralcomic"/>
 
-            <Button
+            <ImageButton
                 android:id="@+id/manga"
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:text="Manga" />
+                android:background="@android:color/transparent"
+                android:src="@mipmap/manga1"
+                android:contentDescription="@string/manga"
+                android:scaleType="fitXY"
+                android:onClick="iralcomic"/>
 
-            <Button
-                android:id="@+id/ben10"
+
+            <ImageButton
+                android:id="@+id/darkHorse"
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:text="Ben 10" />
+                android:scaleType="fitXY"
+                android:contentDescription="@string/dark"
+                android:background="@android:color/transparent"
+                android:src="@mipmap/darkhourse1"
+                android:onClick="iralcomic"/>
 
-            <Button
-                android:id="@+id/mylittlepony"
+            <ImageButton
+                android:id="@+id/imageComics"
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
-                android:text="My Little Pony" />
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/image"
+                android:scaleType="fitXY"
+                android:src="@mipmap/image1"
+                android:onClick="iralcomic"/>
 
-            <Button
+            <ImageButton
+                android:id="@+id/vertigo"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/vertigo"
+                android:scaleType="fitXY"
+                android:src="@mipmap/vertigo2"
+                android:onClick="iralcomic"/>
+
+
+            <ImageButton
+                android:id="@+id/idwComics"
+                android:layout_width="match_parent"
+                android:background="@android:color/transparent"
+                android:scaleType="fitXY"
+                android:src="@mipmap/idw2"
+                android:layout_height="130dp"
+                android:onClick="iralcomic"/>
+
+            <ImageButton
                 android:id="@+id/others"
                 android:layout_width="match_parent"
                 android:layout_height="130dp"

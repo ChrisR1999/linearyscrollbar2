@@ -47,7 +47,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="131dp"
         android:layout_marginTop="85dp"
-        android:text="Open" />
+        android:text="Open"
+        android:textAlignment="center" />
 
 
 </RelativeLayout>

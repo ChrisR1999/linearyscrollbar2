@@ -13,12 +13,12 @@ public class paginaweb extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paginaweb);
-        iniciar();
-        String url = getIntent().getStringExtra("type");
+        initComponents();
+        String url = getIntent().getStringExtra("link");
         wv1.loadUrl(url);
     }
 
-    public void iniciar(){
+    public void initComponents(){
         wv1 = (WebView) findViewById(R.id.web);
         WebSettings webSettings = wv1.getSettings();
         webSettings.setJavaScriptEnabled(true);
