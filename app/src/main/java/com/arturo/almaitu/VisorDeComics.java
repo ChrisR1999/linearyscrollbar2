@@ -7,6 +7,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.arturo.almaitu.R;
 import com.arturo.almaitu.Adapters.AdaptadorMain;
 import com.arturo.almaitu.Controladores.ControladorLinks;
 
