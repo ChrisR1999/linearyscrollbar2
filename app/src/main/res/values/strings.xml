@@ -6,4 +6,6 @@
     <string name="image">Image</string>
     <string name="dark">Dark</string>
     <string name="vertigo">Vertigo</string>
+    <string name="aviso">LA MAYORIA DE LOS LINKS EN ESTA APP SON TOMADOS DE OTRAS FUENTES CUALQUIER PROBLEMAS</string>
+    <string name="aviso2">CON LOS LINKS DUDAS O SUGERENCIAS MANDAR UN CORREO A carlitox_r20_banana@hotmail.com</string>
 </resources>
