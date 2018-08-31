@@ -10,18 +10,21 @@
     local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
     <EditText
-        android:id="@+id/comicSearch"
-        android:layout_width="match_parent"
+        android:id="@+id/godSearch"
+        android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_margin="6dp"
-        android:background="@color/primary_light"
-        android:drawableEnd="@drawable/ic_search_24"
         android:hint="Buscar por nombre..."
         android:imeOptions="actionSearch"
-        android:inputType="text"
         android:maxLines="1"
-        android:padding="4dp"
-        android:textColor="@color/primary_text"
-        android:textColorHint="@color/secondary_text" />
+        android:inputType="text"
+        android:focusable="true"
+        android:focusableInTouchMode ="true"
+        android:enabled="false"
+        android:cursorVisible="false"
+        android:visibility="gone"
+
+        android:textColorHint="@color/colorAccent"
+        android:padding="4dp" />
 
 </android.support.v7.widget.Toolbar>
