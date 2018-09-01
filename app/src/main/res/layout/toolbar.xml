@@ -4,27 +4,26 @@
     android:id="@+id/toolbar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="?attr/colorPrimary"
+    android:background="@color/primary"
     android:minHeight="?attr/actionBarSize"
     local:popupTheme="@style/ThemeOverlay.AppCompat.Light"
     local:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
     <EditText
         android:id="@+id/godSearch"
-        android:layout_width="180dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="6dp"
+        android:background="@color/primary_light"
+        android:drawableEnd="@drawable/ic_search_24"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:hint="Buscar por nombre..."
         android:imeOptions="actionSearch"
-        android:maxLines="1"
         android:inputType="text"
-        android:focusable="true"
-        android:focusableInTouchMode ="true"
-        android:enabled="false"
-        android:cursorVisible="false"
-        android:visibility="gone"
-
-        android:textColorHint="@color/colorAccent"
-        android:padding="4dp" />
+        android:maxLines="1"
+        android:padding="6dp"
+        android:textColor="@color/primary_text"
+        android:textColorHint="@color/secondary_text" />
 
 </android.support.v7.widget.Toolbar>
