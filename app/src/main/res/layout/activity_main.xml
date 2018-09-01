@@ -3,12 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".MainActivity">
 
     <ScrollView
         android:id="@+id/aviso1"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -24,7 +27,7 @@
                 android:textStyle="bold|italic" />
 
             <TextView
-                android:id="@+id/aviso"
+                android:id="@+id/aviso2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/aviso2"
@@ -109,4 +112,17 @@
                 android:text="Otros" />
         </LinearLayout>
     </ScrollView>
+
+    <com.google.android.gms.ads.AdView
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        app:adSize="BANNER"
+        app:adUnitId="ca-app-pub-5146175048698339/3586112095">
+
+    </com.google.android.gms.ads.AdView>
+
 </RelativeLayout>

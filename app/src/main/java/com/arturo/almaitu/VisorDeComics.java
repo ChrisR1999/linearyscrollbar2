@@ -10,6 +10,8 @@ import android.widget.TextView;
 import com.arturo.almaitu.R;
 import com.arturo.almaitu.Adapters.AdaptadorMain;
 import com.arturo.almaitu.Controladores.ControladorLinks;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
 
 import java.util.ArrayList;
 
@@ -18,12 +20,18 @@ public class VisorDeComics extends AppCompatActivity {
     private ListView listComics;
     private ArrayList comicsCards;
     private AdaptadorMain adapter;
+    public InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visordecomics);
         initComponents();
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-5146175048698339/2631165212");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+
     }
 
     private void initComponents() {

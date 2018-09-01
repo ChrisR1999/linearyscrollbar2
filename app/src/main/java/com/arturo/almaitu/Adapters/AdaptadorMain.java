@@ -7,6 +7,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,6 +30,7 @@ public class AdaptadorMain extends BaseAdapter {
     protected Activity activity;
     protected ArrayList<ModeloDc> items;
     private Context contexto;
+    VisorDeComics visor = new VisorDeComics();
 
     public AdaptadorMain(Activity activity, ArrayList<ModeloDc> items, Context contexto) {
         this.activity = activity;
@@ -73,6 +75,12 @@ public class AdaptadorMain extends BaseAdapter {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (visor.mInterstitialAd.isLoaded()) {
+                    visor.mInterstitialAd.show();
+                } else {
+                    Log.d("TAG", "The interstitial wasn't loaded yet.");
+                }
+
                 openDialog(dir.getNombre());
             }
         });
