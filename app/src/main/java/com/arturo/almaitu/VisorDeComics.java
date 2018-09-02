@@ -28,8 +28,9 @@ public class VisorDeComics extends AppCompatActivity {
         setContentView(R.layout.activity_visordecomics);
         initComponents();
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-5146175048698339/2631165212");
+        mInterstitialAd.setAdUnitId("ca-app-pub-3940256099942544/1033173712");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
 
 
     }
