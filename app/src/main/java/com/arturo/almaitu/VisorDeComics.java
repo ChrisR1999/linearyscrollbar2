@@ -2,13 +2,11 @@ package com.arturo.almaitu;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.arturo.almaitu.R;
 import com.arturo.almaitu.Adapters.AdaptadorMain;
 import com.arturo.almaitu.Controladores.ControladorLinks;
 import com.google.android.gms.ads.AdRequest;
@@ -29,16 +27,12 @@ public class VisorDeComics extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visordecomics);
         initComponents();
-        MobileAds.initialize(this, "ca-app-pub-5146175048698339~1301771677");
-        mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-5146175048698339/2631165212");
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-          //Esta tambien esta en Adaptador main esta es una prueba para cuando se abra la activity
+          /*//Esta tambien esta en Adaptador main esta es una prueba para cuando se abra la activity
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         } else {
             Log.d("TAG", "The interstitial wasn't loaded yet.");
-        }
+        }*/
     }
 
     private void initComponents() {
@@ -52,13 +46,18 @@ public class VisorDeComics extends AppCompatActivity {
                 final String comicName = nameView.getText().toString();
             }
         });
+
+        MobileAds.initialize(this, "ca-app-pub-5146175048698339~1301771677");
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId("ca-app-pub-5146175048698339/2631165212");
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
         getAllComics(company);
     }
 
     private void getAllComics(String company) {
         ControladorLinks controller = new ControladorLinks(this);
         comicsCards = controller.getAllComicsByCompany(company);
-        adapter = new AdaptadorMain(this, comicsCards, this);
+        adapter = new AdaptadorMain(this, comicsCards, this, mInterstitialAd);
         listComics.setAdapter(adapter);
     }
 }

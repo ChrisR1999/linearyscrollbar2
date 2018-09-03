@@ -2,7 +2,6 @@ package com.arturo.almaitu.Adapters;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
@@ -17,30 +16,26 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.arturo.almaitu.Alerts.AlertLinks;
-import com.arturo.almaitu.R;
 import com.arturo.almaitu.Modelos.ModeloDc;
+import com.arturo.almaitu.R;
 import com.arturo.almaitu.VisorDeComics;
-import com.arturo.almaitu.links;
-import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;
-import com.google.android.gms.ads.MobileAds;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
 
 public class AdaptadorMain extends BaseAdapter {
 
-    protected Activity activity;
-    protected ArrayList<ModeloDc> items;
+    private Activity activity;
+    private ArrayList<ModeloDc> items;
     private Context contexto;
-    public InterstitialAd mInterstitialAd;
-    VisorDeComics visor = new VisorDeComics();
+    private InterstitialAd mInterstitialAd;
 
-    public AdaptadorMain(Activity activity, ArrayList<ModeloDc> items, Context contexto) {
+    public AdaptadorMain(Activity activity, ArrayList<ModeloDc> items, Context contexto, InterstitialAd mInterstitialAd) {
         this.activity = activity;
         this.items = items;
         this.contexto = contexto;
-
+        this.mInterstitialAd = mInterstitialAd;
     }
 
     @Override
@@ -80,8 +75,8 @@ public class AdaptadorMain extends BaseAdapter {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (visor.mInterstitialAd.isLoaded()) {
-                    visor.mInterstitialAd.show();
+                if (mInterstitialAd.isLoaded()) {
+                    mInterstitialAd.show();
                 } else {
                     Log.d("TAG", "The interstitial wasn't loaded yet.");
                 }
@@ -92,17 +87,17 @@ public class AdaptadorMain extends BaseAdapter {
     }
 
 
-    public RoundedBitmapDrawable createImage(ModeloDc dir) {
-        Bitmap bmp = BitmapFactory.decodeResource(contexto.getResources(),contexto.getResources().getIdentifier(dir.getNombreImagen(), "mipmap", contexto.getPackageName()));
+    private RoundedBitmapDrawable createImage(ModeloDc dir) {
+        Bitmap bmp = BitmapFactory.decodeResource(contexto.getResources(), contexto.getResources().getIdentifier(dir.getNombreImagen(), "mipmap", contexto.getPackageName()));
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         RoundedBitmapDrawable roundedDrawable =
-                RoundedBitmapDrawableFactory.create(null ,bmp);
+                RoundedBitmapDrawableFactory.create(null, bmp);
         roundedDrawable.setCornerRadius(8);
         return roundedDrawable;
     }
 
-    private void openDialog(String comicName){
-        AlertLinks alert = new AlertLinks(activity,contexto, comicName);
+    private void openDialog(String comicName) {
+        AlertLinks alert = new AlertLinks(activity, contexto, comicName);
     }
 
 }
