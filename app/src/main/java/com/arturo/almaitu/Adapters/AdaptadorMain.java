@@ -21,6 +21,9 @@ import com.arturo.almaitu.R;
 import com.arturo.almaitu.Modelos.ModeloDc;
 import com.arturo.almaitu.VisorDeComics;
 import com.arturo.almaitu.links;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.InterstitialAd;
+import com.google.android.gms.ads.MobileAds;
 
 import java.io.ByteArrayOutputStream;
 import java.util.ArrayList;
@@ -30,12 +33,14 @@ public class AdaptadorMain extends BaseAdapter {
     protected Activity activity;
     protected ArrayList<ModeloDc> items;
     private Context contexto;
+    public InterstitialAd mInterstitialAd;
     VisorDeComics visor = new VisorDeComics();
 
     public AdaptadorMain(Activity activity, ArrayList<ModeloDc> items, Context contexto) {
         this.activity = activity;
         this.items = items;
         this.contexto = contexto;
+
     }
 
     @Override
@@ -80,7 +85,6 @@ public class AdaptadorMain extends BaseAdapter {
                 } else {
                     Log.d("TAG", "The interstitial wasn't loaded yet.");
                 }
-
                 openDialog(dir.getNombre());
             }
         });
