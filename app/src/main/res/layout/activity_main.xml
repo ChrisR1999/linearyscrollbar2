@@ -97,16 +97,17 @@
 
 
             <ImageButton
-                android:id="@+id/idwComics"
+                android:id="@+id/others"
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
                 android:background="@android:color/transparent"
+                android:contentDescription="@string/otros"
                 android:onClick="iralcomic"
                 android:scaleType="fitXY"
                 android:src="@mipmap/idw2" />
 
             <ImageButton
-                android:id="@+id/others"
+                android:id="@+id/others2"
                 android:layout_width="match_parent"
                 android:layout_height="130dp"
                 android:text="Otros" />

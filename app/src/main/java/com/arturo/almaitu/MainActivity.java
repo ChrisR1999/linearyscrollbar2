@@ -1,9 +1,21 @@
 package com.arturo.almaitu;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
@@ -13,6 +25,7 @@ import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends AppCompatActivity {
     private AdView mAdView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +42,21 @@ public class MainActivity extends AppCompatActivity {
         final String company = button.getContentDescription().toString();
         Intent intent = new Intent(this, VisorDeComics.class);
         Toast.makeText(this, company, Toast.LENGTH_SHORT).show();
-        intent.putExtra("company", company);
-        startActivity(intent);
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
+
+        if (networkInfo != null && networkInfo.isConnected()) {
+            intent.putExtra("company", company);
+
+            // Si hay conexión a Internet en este momento
+            startActivity(intent);
+
+        } else {
+            Toast.makeText(this,"INTERNET CONECTION FAIL",Toast.LENGTH_LONG).show();
+            // No hay conexión a Internet en este momento
+        }
+
+
 
     }
 }

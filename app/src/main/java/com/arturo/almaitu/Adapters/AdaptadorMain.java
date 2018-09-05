@@ -92,7 +92,7 @@ public class AdaptadorMain extends BaseAdapter {
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         RoundedBitmapDrawable roundedDrawable =
                 RoundedBitmapDrawableFactory.create(null, bmp);
-        roundedDrawable.setCornerRadius(8);
+        roundedDrawable.setCornerRadius(0);
         return roundedDrawable;
     }
 
