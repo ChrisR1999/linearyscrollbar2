@@ -25,52 +25,42 @@ public class ControladorLinks extends VinculoBD {
                 "SELECT Nombre, NombreImagen " +
                 "FROM DcLinks " +
                 "ORDER BY Nombre", null);
-        if (cursor.moveToFirst()) {
-            while (!cursor.isAfterLast()) {
-                final ModeloDc model = new ModeloDc();
-                model.setNombre(cursor.getString(0));
-                model.setNombreImagen(cursor.getString(1));
-                comics.add(model);
-                cursor.moveToNext();
-            }
-            cursor.close();
-            close();
-            return comics;
-        } else {
-            cursor.close();
-            close();
-            return null;
+
+        while (!cursor.isAfterLast()) {
+            final ModeloDc model = new ModeloDc();
+            model.setNombre(cursor.getString(0));
+            model.setNombreImagen(cursor.getString(1));
+            comics.add(model);
+            cursor.moveToNext();
         }
-    }
-
-        public ArrayList<ModeloDc> getAllComicsByCompany(String company) {
-            open();
-            ArrayList<ModeloDc> comics = new ArrayList<>();
-            Cursor cursor = bdComics.rawQuery("" +
-                    "SELECT Nombre, NombreImagen " +
-                    "FROM DcLinks " +
-                    "WHERE Empresa = ? " +
-                    "ORDER BY Nombre ", new String[]{company});
-            if (cursor.moveToFirst()) {
-                while (!cursor.isAfterLast()) {
-                    final ModeloDc model = new ModeloDc();
-                    model.setNombre(cursor.getString(0));
-                    model.setNombreImagen(cursor.getString(1));
-                    comics.add(model);
-                    cursor.moveToNext();
-                }
-                cursor.close();
-                close();
-                return comics;
-            } else {
-                cursor.close();
-                close();
-                return null;
-            }
+        cursor.close();
+        close();
+        return comics;
 
     }
 
-    public ArrayList<ModeloDc> getSearchedComics(String search, String company){
+    public ArrayList<ModeloDc> getAllComicsByCompany(String company) {
+        open();
+        ArrayList<ModeloDc> comics = new ArrayList<>();
+        Cursor cursor = bdComics.rawQuery("" +
+                "SELECT Nombre, NombreImagen " +
+                "FROM DcLinks " +
+                "WHERE Empresa = ? " +
+                "ORDER BY Nombre ", new String[]{company});
+
+        while (!cursor.isAfterLast()) {
+            final ModeloDc model = new ModeloDc();
+            model.setNombre(cursor.getString(0));
+            model.setNombreImagen(cursor.getString(1));
+            comics.add(model);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        close();
+        return comics;
+    }
+
+    public ArrayList<ModeloDc> getSearchedComics(String search, String company) {
         open();
         ArrayList<ModeloDc> comics = new ArrayList<>();
         search = "%" + search + "%";
