@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         final ImageButton button = (ImageButton)view.findViewById(view.getId());
         final String company = button.getContentDescription().toString();
         Intent intent = new Intent(this, VisorDeComics.class);
-        Toast.makeText(this, company, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, company, Toast.LENGTH_SHORT).show();
         ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
@@ -52,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
 
         } else {
-            Toast.makeText(this,"INTERNET CONECTION FAIL",Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"NO SE A PODIDO ESTABLECER LA CONEXION A INTERNET",Toast.LENGTH_LONG).show();
             // No hay conexión a Internet en este momento
         }
 
