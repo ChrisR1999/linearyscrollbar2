@@ -21,7 +21,7 @@ public class ControladorLinks extends VinculoBD {
     public ArrayList<ModeloDc> getAllComics() {
         open();
         ArrayList<ModeloDc> comics = new ArrayList<>();
-        Cursor cursor = bdGods.rawQuery("" +
+        Cursor cursor = bdComics.rawQuery("" +
                 "SELECT Nombre, NombreImagen " +
                 "FROM DcLinks " +
                 "ORDER BY Nombre", null);
@@ -46,7 +46,7 @@ public class ControladorLinks extends VinculoBD {
         public ArrayList<ModeloDc> getAllComicsByCompany(String company) {
             open();
             ArrayList<ModeloDc> comics = new ArrayList<>();
-            Cursor cursor = bdGods.rawQuery("" +
+            Cursor cursor = bdComics.rawQuery("" +
                     "SELECT Nombre, NombreImagen " +
                     "FROM DcLinks " +
                     "WHERE Empresa = ? " +
@@ -70,10 +70,38 @@ public class ControladorLinks extends VinculoBD {
 
     }
 
+    public ArrayList<ModeloDc> getSearchedComics(String search, String company){
+        open();
+        ArrayList<ModeloDc> comics = new ArrayList<>();
+        search = "%" + search + "%";
+        Cursor cursor = bdComics.rawQuery("" +
+                "SELECT Nombre, NombreImagen " +
+                "FROM DcLinks " +
+                "WHERE Empresa = ? AND Nombre LIKE ? " +
+                "ORDER BY Nombre ", new String[]{company, search});
+        if (cursor.moveToFirst()) {
+            while (!cursor.isAfterLast()) {
+                final ModeloDc model = new ModeloDc();
+                model.setNombre(cursor.getString(0));
+                model.setNombreImagen(cursor.getString(1));
+                comics.add(model);
+                cursor.moveToNext();
+            }
+            cursor.close();
+            close();
+            return comics;
+        } else {
+            cursor.close();
+            close();
+            return null;
+        }
+    }
+
+
     public ArrayList<ModeloDc> getLinksAndDescriptions(String title) {
         open();
         ArrayList<ModeloDc> links = new ArrayList<>();
-        Cursor cursor = bdGods.rawQuery("" +
+        Cursor cursor = bdComics.rawQuery("" +
                 "SELECT Link, Descripcion, Link2, Descripcion2, Link3, Descripcion3 " +
                 "FROM DcLinks " +
                 "WHERE Nombre =?", new String[]{title});
