@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 public class VinculoBD {
 
     private ObtenerBD bd;
-    protected SQLiteDatabase bdGods;
+    protected SQLiteDatabase bdComics;
 
     public VinculoBD() {
     }
@@ -18,7 +18,7 @@ public class VinculoBD {
 
     protected void open() {
         bd.open();
-        this.bdGods = bd.obtenermiBD();
+        this.bdComics = bd.obtenermiBD();
     }
 
     protected void close() {
