@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.arturo.almaitu.Adapters.AdaptadorMain;
 import com.arturo.almaitu.Controladores.ControladorLinks;
 import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 
@@ -27,6 +28,7 @@ public class VisorDeComics extends AppCompatActivity {
     private Toolbar toolbar;
     private EditText searchBar;
     public InterstitialAd mInterstitialAd;
+    private AdView mAdView;
 
 
     @Override
@@ -34,6 +36,9 @@ public class VisorDeComics extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_visordecomics);
         initComponents();
+        mAdView = findViewById(R.id.adView2);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        mAdView.loadAd(adRequest);
           /*//Esta tambien esta en Adaptador main esta es una prueba para cuando se abra la activity
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();

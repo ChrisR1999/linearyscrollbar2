@@ -47,7 +47,7 @@ public class ControladorLinks extends VinculoBD {
                 "FROM DcLinks " +
                 "WHERE Empresa = ? " +
                 "ORDER BY Nombre ", new String[]{company});
-
+        cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             final ModeloDc model = new ModeloDc();
             model.setNombre(cursor.getString(0));
@@ -69,7 +69,7 @@ public class ControladorLinks extends VinculoBD {
                 "FROM DcLinks " +
                 "WHERE Empresa = ? AND Nombre LIKE ? " +
                 "ORDER BY Nombre ", new String[]{company, search});
-        if (cursor.moveToFirst()) {
+        cursor.moveToFirst();
             while (!cursor.isAfterLast()) {
                 final ModeloDc model = new ModeloDc();
                 model.setNombre(cursor.getString(0));
@@ -80,11 +80,9 @@ public class ControladorLinks extends VinculoBD {
             cursor.close();
             close();
             return comics;
-        } else {
-            cursor.close();
-            close();
-            return null;
-        }
+
+
+
     }
 
 

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 
 public class MainActivity extends AppCompatActivity {
@@ -35,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         mAdView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
+       // MobileAds.initialize(this, "ca-app-pub-5146175048698339~1301771677");
+
     }
 
     public void iralcomic(View view){
@@ -49,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("company", company);
 
             // Si hay conexión a Internet en este momento
+
             startActivity(intent);
 
         } else {

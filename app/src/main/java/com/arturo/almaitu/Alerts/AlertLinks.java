@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.net.Uri;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
@@ -83,12 +84,19 @@ public class AlertLinks extends AlertDialog {
             button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    final Intent intent = new Intent(activity, paginaweb.class);
-                    intent.putExtra("link", finalLink);
-                    activity.startActivity(intent);
+                    //final Intent intent = new Intent(activity, paginaweb.class);
+                    //intent.putExtra("link", finalLink);
+                    //activity.startActivity(intent);
+                    apretar(finalLink);
                 }
             });
             linear.addView(button);
         }
+    }
+
+    public void apretar(String url){
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        activity.startActivity(intent);
     }
 }

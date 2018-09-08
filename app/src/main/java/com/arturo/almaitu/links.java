@@ -1,6 +1,7 @@
 package com.arturo.almaitu;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
@@ -45,6 +46,7 @@ public class links extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 visitar();
+
             }
         });
         if (!Agarrar.equals(null))
@@ -57,4 +59,6 @@ public class links extends AppCompatActivity {
         startActivity(intent);
 
     }
+
+
 }
