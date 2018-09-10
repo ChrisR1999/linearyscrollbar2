@@ -108,4 +108,25 @@ public class ControladorLinks extends VinculoBD {
         close();
         return links;
     }
+
+    public ArrayList<ModeloDc> getAllComicsByRandom(String company) {
+        open();
+        ArrayList<ModeloDc> comics = new ArrayList<>();
+        Cursor cursor = bdComics.rawQuery("" +
+                "SELECT Nombre, NombreImagen " +
+                "FROM DcLinks " +
+                "WHERE random = ? " +
+                "ORDER BY Nombre ", new String[]{company});
+        cursor.moveToFirst();
+        while (!cursor.isAfterLast()) {
+            final ModeloDc model = new ModeloDc();
+            model.setNombre(cursor.getString(0));
+            model.setNombreImagen(cursor.getString(1));
+            comics.add(model);
+            cursor.moveToNext();
+        }
+        cursor.close();
+        close();
+        return comics;
+    }
 }
