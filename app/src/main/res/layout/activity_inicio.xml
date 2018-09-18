@@ -90,7 +90,7 @@
             android:layout_above="@+id/textView"
             android:layout_alignParentStart="true"
             app:adSize="BANNER"
-            app:adUnitId="ca-app-pub-5146175048698339/14"></com.google.android.gms.ads.AdView>
+            app:adUnitId="ca-app-pub-5146175048698339/3586112095"></com.google.android.gms.ads.AdView>
 
     </LinearLayout>
 

@@ -42,7 +42,7 @@
                 android:contentDescription="@string/dcComics"
                 android:onClick="iralcomic"
                 android:scaleType="fitXY"
-                android:src="@mipmap/dc2" />
+                android:src="@mipmap/dc" />
 
             <ImageButton
                 android:id="@+id/marvel"
@@ -52,7 +52,29 @@
                 android:contentDescription="@string/marvel"
                 android:onClick="iralcomic"
                 android:scaleType="fitXY"
-                android:src="@mipmap/marvel1" />
+                android:src="@mipmap/marvel" />
+
+            <ImageButton
+                android:id="@+id/multi"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/Multi"
+                android:onClick="iralcomic"
+                android:scaleType="fitXY"
+                android:src="@mipmap/gir" />
+
+            <ImageButton
+                android:id="@+id/anime"
+                android:layout_width="match_parent"
+                android:layout_height="130dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="@string/anime"
+                android:onClick="iralcomic"
+                android:scaleType="fitXY"
+                android:src="@mipmap/anime" />
+
+
 
             <ImageButton
                 android:id="@+id/manga"
@@ -62,7 +84,7 @@
                 android:contentDescription="@string/manga"
                 android:onClick="iralcomic"
                 android:scaleType="fitXY"
-                android:src="@mipmap/manga1" />
+                android:src="@mipmap/manga" />
 
 
             <ImageButton
@@ -73,7 +95,7 @@
                 android:contentDescription="@string/dark"
                 android:onClick="iralcomic"
                 android:scaleType="fitXY"
-                android:src="@mipmap/darkhourse1" />
+                android:src="@mipmap/darkhor" />
 
             <ImageButton
                 android:id="@+id/imageComics"
@@ -83,7 +105,7 @@
                 android:contentDescription="@string/image"
                 android:onClick="iralcomic"
                 android:scaleType="fitXY"
-                android:src="@mipmap/image1" />
+                android:src="@mipmap/image" />
 
             <ImageButton
                 android:id="@+id/vertigo"
@@ -93,7 +115,7 @@
                 android:contentDescription="@string/vertigo"
                 android:onClick="iralcomic"
                 android:scaleType="fitXY"
-                android:src="@mipmap/vertigo2" />
+                android:src="@mipmap/vertigo" />
 
 
             <ImageButton
