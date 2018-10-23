@@ -46,20 +46,12 @@ public class MainActivity extends AppCompatActivity {
         final String company = button.getContentDescription().toString();
         Intent intent = new Intent(this, VisorDeComics.class);
         //Toast.makeText(this, company, Toast.LENGTH_SHORT).show();
-        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();
 
-        if (networkInfo != null && networkInfo.isConnected()) {
             intent.putExtra("company", company);
 
             // Si hay conexión a Internet en este momento
 
             startActivity(intent);
-
-        } else {
-            Toast.makeText(this,"NO SE A PODIDO ESTABLECER LA CONEXION A INTERNET",Toast.LENGTH_LONG).show();
-            // No hay conexión a Internet en este momento
-        }
 
 
 

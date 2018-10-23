@@ -14,11 +14,13 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.arturo.almaitu.Alerts.AlertLinks;
 import com.arturo.almaitu.Modelos.ModeloDc;
 import com.arturo.almaitu.R;
 import com.arturo.almaitu.VisorDeComics;
+import com.bumptech.glide.Glide;
 import com.google.android.gms.ads.InterstitialAd;
 
 import java.io.ByteArrayOutputStream;
@@ -30,7 +32,7 @@ public class AdaptadorMain extends BaseAdapter {
     private ArrayList<ModeloDc> items;
     private Context contexto;
     private InterstitialAd mInterstitialAd;
-
+     String foto = "";
     public AdaptadorMain(Activity activity, ArrayList<ModeloDc> items, Context contexto, InterstitialAd mInterstitialAd) {
         this.activity = activity;
         this.items = items;
@@ -71,7 +73,9 @@ public class AdaptadorMain extends BaseAdapter {
         comicImage = (ImageView) v.findViewById(R.id.comicImage);
         button = (Button) v.findViewById(R.id.buttonLink);
         comicName.setText(dir.getNombre());
-        comicImage.setImageDrawable(createImage(dir));
+        //comicImage.setImageDrawable(createImage(dir));
+        createImage(dir);
+        Glide.with(contexto).load(foto).placeholder(R.mipmap.alitas).into(comicImage);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,13 +91,18 @@ public class AdaptadorMain extends BaseAdapter {
     }
 
 
-    private RoundedBitmapDrawable createImage(ModeloDc dir) {
-        Bitmap bmp = BitmapFactory.decodeResource(contexto.getResources(), contexto.getResources().getIdentifier(dir.getNombreImagen(), "mipmap", contexto.getPackageName()));
+    private /*RoundedBitmapDrawable*/void createImage(ModeloDc dir) {
+       // foto ="https://scontent.fmex11-1.fna.fbcdn.net/v/t31.0-8/19574980_127581701164679_6324430080905368172_o.jpg?_nc_cat=102&oh=e32e64b07b872f0db35604d3c6beb684&oe=5C61D08E";
+       // Toast.makeText(contexto,""+dir.getNombreImagen(),Toast.LENGTH_LONG).show();
+        foto =dir.getNombreImagen();
+        /*  Bitmap bmp = BitmapFactory.decodeResource(contexto.getResources(), contexto.getResources().getIdentifier(dir.getNombreImagen(), "mipmap", contexto.getPackageName()));
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         RoundedBitmapDrawable roundedDrawable =
                 RoundedBitmapDrawableFactory.create(null, bmp);
+
+
         roundedDrawable.setCornerRadius(0);
-        return roundedDrawable;
+        return roundedDrawable;*/
     }
 
     private void openDialog(String comicName) {
